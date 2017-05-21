@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sort Lines By Length</title>
+  <style>
+    .center {
+      margin: 0 auto;
+      display: block
+    }
+    
+    textarea {
+      width: 80%;
+      padding: 20px;
+      margin: 20px auto !important;
+    }
+  </style>
+</head>
+
+<body>
+  <textarea class="center" id="t" cols="30" rows="30" placeholder="Paste your text here" spellcheck="false"></textarea>
+  <br>
+  <input class="center" type="button" value="Sort By Line Length" onclick="sort()">
+  <br>
+  <div style="text-align:center">Twitter: @ShivrajRath</div>
+  <script>
+    function sort() {
+      var input = document.getElementById('t').value;
+      if (input) {
+        input = input.split('\n').map(function (item) {
+          return item.trim()
+        });
+        document.getElementById('t').value = input.sort(function (a, b) {
+          return a.length - b.length
+        }).join('\n');
+      }
+    }
+  </script>
+</body>
